@@ -19,7 +19,7 @@ const ListTodos=()=>{
 
   const getTodos=async ()=>{
     try {
-      const response=await fetch(`http://10.96.88.107:5000/todos`)
+      const response=await fetch("http://10.96.88.107:5000/todos")
       const jsondata=await response.json();
       setTodos(jsondata);
       setLoading(false);
