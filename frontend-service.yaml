@@ -1,9 +1,43 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: frontend-deployment
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: frontend
+#   template:
+#     metadata:
+#       labels:
+#         app: frontend
+#     spec:
+#       containers:
+#       - name: frontend
+#         image: onekeys/frontend:latest
+#         env:
+#         - name: BACKEND_URL
+#           value: "10.100.145.151"
+#         ports:
+#         - containerPort: 3000
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: frontend-service
+# spec:
+#   selector:
+#     app: frontend
+#   ports:
+#     - protocol: TCP
+#       port: 3000
+#       targetPort: 3000
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: frontend
@@ -13,22 +47,10 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: frontend
-        image: onekeys/frontend:latest
-        env:
-        - name: BACKEND_URL
-          value: "10.100.145.151"
-        ports:
-        - containerPort: 3000
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: frontend-service
-spec:
-  selector:
-    app: frontend
-  ports:
-    - protocol: TCP
-      port: 3000
-      targetPort: 3000
+        - name: frontend
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          env:
+            - name: BACKEND_URL
+              value: {{ .Values.backendUrl }}
+          ports:
+            - containerPort: 3000
