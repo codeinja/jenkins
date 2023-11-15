@@ -14,7 +14,10 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: onekeys/frontend:test
+        image: onekeys/frontend:latest
+        env:
+        - name: BACKEND_URL
+          value: "10.100.145.151"
         ports:
         - containerPort: 3000
 ---
@@ -29,4 +32,3 @@ spec:
     - protocol: TCP
       port: 3000
       targetPort: 3000
-  type: LoadBalancer

@@ -12,6 +12,14 @@ spec:
       labels:
         app: postgres
     spec:
+      tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        effect: NoSchedule
+
+      volumes:
+      - name: postgres-data
+        persistentVolumeClaim:
+          claimName: postgres-pvc
       containers:
       - name: postgres
         image: onekeys/postgres:latest
@@ -28,6 +36,9 @@ spec:
             secretKeyRef:
               name: postgres-secret
               key: POSTGRES_PASSWORD
+        volumeMounts: 
+        - name: postgres-data
+          mountPath: /var/lib/postgresql/data
         ports:
         - containerPort: 5432
 ---

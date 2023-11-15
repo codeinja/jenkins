@@ -8,7 +8,7 @@ const InputTodo=()=>{
   e.preventDefault();
     try {
       const body={description};
-      const response=await fetch("http://10.96.88.107:5000/todos",{
+      const response=await fetch("http://10.100.145.151:5000/todos",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify(body)
