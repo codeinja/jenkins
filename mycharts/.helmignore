@@ -21,3 +21,10 @@
 .idea/
 *.tmproj
 .vscode/
+database.sql
+Dockerfile
+README.md
+package.json
+package-lock.json
+/client
+/server
