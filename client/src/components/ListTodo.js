@@ -6,7 +6,7 @@ const ListTodos=()=>{
   const [isLoading,setLoading]=useState(true);
   const deleteTodo=async(id)=>{
     try {
-      const deleteTodo=await fetch("http://10.106.94.178:5000/todos/${id}",{
+      const deleteTodo=await fetch("http://10.102.90.130:5000/todos/${id}",{
         method:"DELETE"
       });
 
@@ -20,7 +20,7 @@ const ListTodos=()=>{
   const getTodos=async ()=>{
     try {
       console.log("${process.env.BACKEND_URL}")
-      const response=await fetch("http://10.106.94.178:5000/todos")
+      const response=await fetch("http://10.102.90.130:5000/todos")
       const jsondata=await response.json();
       setTodos(jsondata);
       setLoading(false);
