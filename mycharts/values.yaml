@@ -4,7 +4,7 @@ frontend:
     repository: onekeys/frontend
     tag: ""
     pullPolicy: IfNotPresent
-  backendUrl: "10.102.90.130"
+  backendUrl: "10.97.248.58"
 
 postgres:
   replicaCount: 1
@@ -23,4 +23,4 @@ backend:
     repository: onekeys/backend
     tag: ""
     pullPolicy: IfNotPresent
-  dbHost: "10.97.118.32"
+  dbHost: "10.105.51.153"
