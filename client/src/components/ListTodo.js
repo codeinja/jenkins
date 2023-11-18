@@ -1,12 +1,13 @@
 import React,{Fragment,useEffect,useState} from "react";
 import EditTodo from "./EditTodo";
+import { BASE_URL } from "./BackendURL.js";
 
 const ListTodos=()=>{
   const [todos,setTodos]=useState([]);
   const [isLoading,setLoading]=useState(true);
   const deleteTodo=async(id)=>{
     try {
-      const deleteTodo=await fetch(`http://10.97.248.58:5000/todos/${id}`,{
+      const deleteTodo=await fetch(`${BASE_URL}/todos/${id}`,{
         method:"DELETE"
       });
 
@@ -19,7 +20,7 @@ const ListTodos=()=>{
 
   const getTodos=async ()=>{
     try {
-      const response=await fetch(`http://10.97.248.58:5000/todos`)
+      const response=await fetch(`${BASE_URL}/todos`)
       const jsondata=await response.json();
       setTodos(jsondata);
       setLoading(false);

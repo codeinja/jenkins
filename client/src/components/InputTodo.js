@@ -1,4 +1,5 @@
 import React,{Fragment,useState} from "react";
+import { BASE_URL } from "./BackendURL.js";
 
 const InputTodo=()=>{
 
@@ -8,7 +9,7 @@ const InputTodo=()=>{
   e.preventDefault();
     try {
       const body={description};
-      const response=await fetch(`http://10.97.248.58:5000/todos`,{
+      const response=await fetch(`${BASE_URL}/todos`,{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify(body)

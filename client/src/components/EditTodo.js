@@ -1,4 +1,5 @@
 import React,{Fragment,useState} from "react";
+import { BASE_URL } from "./BackendURL.js";
 
 const EditTodo=({todo})=>{
   const [description,setdescription]=useState(todo.description)
@@ -7,7 +8,7 @@ const EditTodo=({todo})=>{
     e.preventDefault();
     try {
       const body={description};
-      const response=await fetch(`http://10.97.248.58:5000/todos/${todo.todo_id}`,{
+      const response=await fetch(`${BASE_URL}/todos/${todo.todo_id}`,{
         method:"PUT",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(body)
