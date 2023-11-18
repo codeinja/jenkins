@@ -1,6 +1,6 @@
 import React,{Fragment,useEffect,useState} from "react";
 import EditTodo from "./EditTodo";
-import { BASE_URL } from "../BackendURL.js";
+import { BASE_URL } from "./BackendURL.js";
 
 const ListTodos=()=>{
   const [todos,setTodos]=useState([]);
