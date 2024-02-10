@@ -1,2 +1,2 @@
 # jenkins
-CI/CD Automation for a PERN Full-Stack Application.........
+CI/CD Automation for a PERN Full-Stack Application
