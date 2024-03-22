@@ -27,7 +27,7 @@ const InputTodo=()=>{
       <form className="d-flex" onSubmit={onSubmitform}>
        <input className="form-control" type="text" value={description} onChange={e=>
       setdescription(e.target.value)} />
-       <button className="text-center btn btn-lg btn-success">Add</button> 
+       <button className="text-center btn btn-lg btn-primary">Add</button> 
       </form>
     </Fragment>
   )
