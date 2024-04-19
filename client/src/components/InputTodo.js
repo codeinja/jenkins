@@ -23,7 +23,7 @@ const InputTodo=()=>{
 
   return(
     <Fragment>
-      <h1 className="text-center mt-5">TO-DO Application</h1>
+      <h1 className="text-center mt-5">Simple TO-DO Application</h1>
       <form className="d-flex" onSubmit={onSubmitform}>
        <input className="form-control" type="text" value={description} onChange={e=>
       setdescription(e.target.value)} />
